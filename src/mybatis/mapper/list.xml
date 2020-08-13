@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="mybatis.mapper.list">
+
+	<select id="select_all" resultType="dto.LDto" parameterType="String">
+		SELECT * FROM SCORE WHERE U_ID = #{u_id} ORDER BY TITLE
+	</select>
+	
+	<select id="select_one" resultType="dto.LDto" parameterType="int">
+		SELECT * FROM SCORE WHERE IDX = #{idx}
+	</select>
+	
+	<insert id="insert_list" parameterType="dto.LDto">
+		INSERT INTO SCORE VALUES(SCORE_SEQ.NEXTVAL, #{title}, #{score}, #{u_comment}, #{ip}, #{img}, SYSDATE, #{u_id})
+	</insert>
+
+</mapper>
+
+
+
+
